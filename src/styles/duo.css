@@ -1,0 +1,192 @@
+/* Shared Duolingo-style building blocks (login, quiz, daily quest) */
+html, body, #root { min-height: 100vh; }
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Screen themes */
+.theme-green { background-color: #58CC02; color: white; }
+.theme-white { background-color: #FFFFFF; color: #4B4B4B; }
+.theme-cream { background-color: #FFFDF9; color: #4B4B4B; }
+
+/* 3D buttons */
+.btn-3d { transition: all 0.1s; box-shadow: 0 4px 0 #58a700; }
+.btn-3d:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 0 0 #58a700; }
+.btn-3d:disabled {
+  background-color: #E5E5E5; color: #AFAFAF; box-shadow: 0 4px 0 #C4C4C4; cursor: not-allowed;
+}
+.btn-blue-3d { transition: all 0.1s; box-shadow: 0 4px 0 #1899D6; }
+.btn-blue-3d:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 0 0 #1899D6; }
+
+.btn-green { background-color: #58CC02; box-shadow: 0 4px 0 #58A700; color: white; }
+.btn-green:active { transform: translateY(4px); box-shadow: 0 0 0 #58A700; }
+.btn-red { background-color: #FF4B4B; box-shadow: 0 4px 0 #EA2B2B; color: white; }
+.btn-red:active { transform: translateY(4px); box-shadow: 0 0 0 #EA2B2B; }
+.btn-disabled {
+  background-color: #E5E5E5; box-shadow: 0 4px 0 #C4C4C4; color: #AFAFAF; cursor: not-allowed;
+}
+
+/* Keypad */
+.keypad-btn { background-color: rgba(255, 255, 255, 0.9); color: #58CC02; transition: all 0.1s; }
+.keypad-btn:active { background-color: rgba(255, 255, 255, 0.5); transform: scale(0.95); }
+
+/* Quiz option cards */
+.option-card {
+  border: 2px solid #E5E5E5;
+  box-shadow: 0 4px 0 #E5E5E5;
+  background-color: white;
+  transition: all 0.15s ease;
+}
+.option-card:hover:not(.matched):not(.wrong) { border-color: #84D8FF; background-color: #F7FBFD; }
+.option-card.selected {
+  border-color: #1CB0F6 !important;
+  background-color: #DDF4FF !important;
+  box-shadow: 0 4px 0 #1899D6 !important;
+  color: #1CB0F6 !important;
+}
+.option-card.wrong {
+  border-color: #FFC1C1 !important;
+  background-color: #FFDFE0 !important;
+  box-shadow: 0 4px 0 #EA2B2B !important;
+  color: #EA2B2B !important;
+  animation: shake 0.4s ease-in-out;
+}
+.option-card.matched {
+  border-color: #E5E5E5 !important;
+  background-color: #F5F5F5 !important;
+  box-shadow: none !important;
+  color: #AFAFAF !important;
+  cursor: default;
+  opacity: 0.4;
+}
+
+/* Animations */
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.shake { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+.slide-up { animation: slideUp 0.25s ease-out forwards; }
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes owlJump {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-30px) scale(1.05) rotate(-3deg); }
+  50% { transform: translateY(0) scale(0.95); }
+  70% { transform: translateY(-15px) scale(1.02) rotate(3deg); }
+}
+.owl-jumping { animation: owlJump 0.8s ease-in-out infinite; }
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.sparkle-icon { animation: sparkle 1.2s ease-in-out infinite; }
+
+/* Checkbox */
+.duo-checkbox {
+  appearance: none;
+  width: 24px; height: 24px;
+  border: 2px solid #E5E5E5;
+  border-radius: 8px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  background-color: white;
+}
+.duo-checkbox:checked { background-color: #1CB0F6; border-color: #1CB0F6; }
+.duo-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 7px; top: 3px;
+  width: 6px; height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Passcode dots */
+.pass-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; transition: all 0.2s; }
+.pass-dot.filled { background-color: white; }
+
+/* Fill-in-the-blank underline */
+.blank-underline {
+  display: inline-block;
+  border-bottom: 3px solid #777777;
+  min-width: 90px; height: 28px;
+  text-align: center; vertical-align: bottom;
+  font-weight: 800; color: #1CB0F6;
+  padding: 0 4px;
+}
+
+/* Owl mascot */
+.owl-mascot-container { position: relative; width: 110px; height: 120px; flex-shrink: 0; }
+.owl-body {
+  width: 100%; height: 100%;
+  background-color: #58CC02;
+  border: 4px solid #46A302;
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+  box-shadow: inset 0 -8px 0 #46A302;
+}
+.owl-wing-left, .owl-wing-right {
+  position: absolute; width: 24px; height: 45px; background-color: #46A302; border-radius: 20px; top: 40px;
+}
+.owl-wing-left { left: -10px; transform: rotate(15deg); }
+.owl-wing-right { right: -10px; transform: rotate(-15deg); }
+.owl-foot-left, .owl-foot-right {
+  position: absolute; bottom: -8px; width: 20px; height: 12px; background-color: #FFC800; border-radius: 10px;
+}
+.owl-foot-left { left: 25px; }
+.owl-foot-right { right: 25px; }
+.owl-face-slot {
+  position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+  width: 64px; height: 64px;
+  background-color: #FFFFFF;
+  border: 3px solid #78E22E;
+  border-radius: 50%;
+  overflow: hidden; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.owl-beak {
+  position: absolute; top: 76px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid #FF9600;
+  z-index: 12;
+}
+
+/* Stats screen */
+.stat-box { opacity: 0; animation: popBoxLeftToRight 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+.stat-box-1 { animation-delay: 0.15s; }
+.stat-box-2 { animation-delay: 0.45s; }
+.stat-box-3 { animation-delay: 0.75s; }
+@keyframes popBoxLeftToRight {
+  0% { opacity: 0; transform: translateX(-40px) scale(0.7) rotate(-4deg); }
+  70% { transform: translateX(5px) scale(1.06) rotate(1deg); }
+  100% { opacity: 1; transform: translateX(0) scale(1) rotate(0deg); }
+}
+.pop-scale { animation: popScale 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+@keyframes popScale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}

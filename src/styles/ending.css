@@ -1,0 +1,64 @@
+/* Chest + birthday cake ending scene */
+.btn-3d-green { background-color: #58CC02; box-shadow: 0 6px 0 #46A302; transition: all 0.1s ease; }
+.btn-3d-green:active { transform: translateY(4px); box-shadow: 0 2px 0 #46A302; }
+
+@keyframes shakeGentle {
+  0%, 100% { transform: rotate(0deg) translate(0, 0); }
+  25% { transform: rotate(-3deg) translate(-2px, -2px); }
+  75% { transform: rotate(3deg) translate(2px, 0); }
+}
+@keyframes shakeMedium {
+  0%, 100% { transform: rotate(0deg) translate(0, 0) scale(1.02); }
+  20% { transform: rotate(-7deg) translate(-5px, -3px) scale(1.03); }
+  40% { transform: rotate(6deg) translate(5px, 2px) scale(1.03); }
+  60% { transform: rotate(-6deg) translate(-4px, 1px) scale(1.04); }
+  80% { transform: rotate(7deg) translate(4px, -2px) scale(1.04); }
+}
+@keyframes shakeRumble {
+  0%, 100% { transform: rotate(0deg) translate(0, 0) scale(1.08); }
+  10% { transform: rotate(-12deg) translate(-9px, -6px) scale(1.1); }
+  20% { transform: rotate(12deg) translate(9px, 4px) scale(1.12); }
+  30% { transform: rotate(-14deg) translate(-10px, 5px) scale(1.12); }
+  40% { transform: rotate(14deg) translate(10px, -5px) scale(1.14); }
+  50% { transform: rotate(-12deg) translate(-8px, -4px) scale(1.14); }
+  60% { transform: rotate(12deg) translate(8px, 6px) scale(1.15); }
+  70% { transform: rotate(-10deg) translate(-6px, -2px) scale(1.15); }
+  80% { transform: rotate(10deg) translate(6px, 4px) scale(1.15); }
+  90% { transform: rotate(-6deg) translate(-3px, -1px) scale(1.12); }
+}
+.animate-shake-1 { animation: shakeGentle 0.3s ease-in-out infinite; }
+.animate-shake-2 { animation: shakeMedium 0.2s ease-in-out infinite; }
+.animate-shake-3 { animation: shakeRumble 0.12s ease-in-out infinite; }
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
+  25% { transform: scale(1.12, 0.92) rotate(2deg); opacity: 1; }
+  50% { transform: scale(0.92, 1.08) rotate(-2deg); opacity: 0.88; }
+  75% { transform: scale(1.05, 0.98) rotate(1deg); opacity: 0.98; }
+}
+.animate-flame { animation: flameFlicker 0.6s infinite ease-in-out alternate; transform-origin: center bottom; transform-box: fill-box; }
+.animate-flame-delay-1 { animation: flameFlicker 0.7s infinite ease-in-out alternate 0.15s; transform-origin: center bottom; transform-box: fill-box; }
+.animate-flame-delay-2 { animation: flameFlicker 0.65s infinite ease-in-out alternate 0.3s; transform-origin: center bottom; transform-box: fill-box; }
+
+@keyframes spinRays {
+  0% { transform: rotate(0deg) scale(0.8); }
+  50% { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(0.8); }
+}
+.animate-spin-rays { animation: spinRays 12s linear infinite; }
+
+@keyframes sparkleTwinkle {
+  0%, 100% { transform: scale(0.6) rotate(0deg); opacity: 0.3; }
+  50% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+}
+.sparkle-1 { animation: sparkleTwinkle 1.8s ease-in-out infinite 0s; }
+.sparkle-2 { animation: sparkleTwinkle 2.2s ease-in-out infinite 0.4s; }
+.sparkle-3 { animation: sparkleTwinkle 1.5s ease-in-out infinite 0.8s; }
+
+.lid-open { transform: translateY(-55px) rotate(-22deg) scale(0.98); transform-origin: 220px 100px; }
+
+@keyframes pulseSoft {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+.animate-pulse-text { animation: pulseSoft 1.8s ease-in-out infinite; }

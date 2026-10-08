@@ -1,0 +1,7 @@
+@import './duo.css';
+@import './exercises.css';
+@import './ending.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
