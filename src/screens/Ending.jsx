@@ -78,7 +78,7 @@ function PartyPopper({ className }) {
 // The lid is a separate <g> so it can be animated open; rendered inside the same <svg> by ChestWithLid.
 function ChestWithLid({ open }) {
   return (
-    <svg className="w-64 h-56 md:w-72 md:h-64 drop-shadow-xl overflow-visible" viewBox="0 0 300 250">
+    <svg className="h-[30dvh] max-h-64 w-auto aspect-[6/5] drop-shadow-xl overflow-visible" viewBox="0 0 300 250">
       <defs>
         <linearGradient id="redGradient" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#FF5252" />
@@ -123,7 +123,7 @@ function ChestWithLid({ open }) {
 
 function Cake() {
   return (
-    <svg className="w-64 h-64 md:w-72 md:h-72 drop-shadow-2xl overflow-visible" viewBox="0 0 320 320">
+    <svg className="h-[34dvh] max-h-72 w-auto aspect-square drop-shadow-2xl overflow-visible" viewBox="0 0 320 320">
       <defs>
         <radialGradient id="cakePlateShadow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#431375" stopOpacity="0.8" />
@@ -219,14 +219,14 @@ export default function Ending() {
 
   return (
     <div className="fixed inset-0 bg-slate-900 flex items-center justify-center overflow-hidden font-nunito select-none">
-      <div className="relative w-full max-w-md h-screen md:h-[840px] md:max-h-[92vh] md:rounded-[40px] overflow-hidden shadow-2xl flex flex-col justify-between transition-all duration-300">
+      <div className="relative w-full max-w-md h-[100dvh] md:h-[840px] md:max-h-[92vh] md:rounded-[40px] overflow-hidden shadow-2xl flex flex-col justify-between transition-all duration-300">
         {/* SCENE 1: chest */}
         <div
-          className={`absolute inset-0 bg-[#FF9600] flex flex-col items-center justify-between py-12 px-6 transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-[#FF9600] flex flex-col items-center justify-between py-6 px-6 transition-opacity duration-300 ${
             scene === 'chest' ? 'z-10' : 'opacity-0 pointer-events-none'
           }`}
         >
-          <div className="pt-8 text-center z-10">
+          <div className="pt-4 text-center z-10">
             <h1 className="text-white text-3xl md:text-4xl font-black tracking-widest drop-shadow-md uppercase">MEGA</h1>
           </div>
 
@@ -264,7 +264,7 @@ export default function Ending() {
             </div>
           </div>
 
-          <div className="pb-8 text-center z-10">
+          <div className="pb-4 text-center z-10">
             <p className="text-white text-xl font-extrabold tracking-wide animate-pulse-text drop-shadow">{hint}</p>
           </div>
         </div>
@@ -293,7 +293,7 @@ export default function Ending() {
           <canvas ref={confettiRef} className="absolute inset-0 pointer-events-none z-10 w-full h-full" />
 
           <div className="flex flex-col items-center justify-center my-auto z-20 w-full">
-            <div className="relative mb-8">
+            <div className="relative mb-3">
               <Cake />
             </div>
 
@@ -312,7 +312,7 @@ export default function Ending() {
             </div>
           </div>
 
-          <div className="w-full pt-4 pb-4 z-20">
+          <div className="w-full pt-2 pb-2 z-20">
             <button
               onClick={() => { sfx.click(); setModal(true); }}
               className="w-full py-4 text-center text-white text-lg md:text-xl font-extrabold tracking-wider rounded-2xl btn-3d-green uppercase transition-all duration-150"
