@@ -38,6 +38,7 @@ export default function AdminPanel() {
   const save = () => {
     const next = {
       faceUrl: form.faceUrl.trim() || state.config.faceUrl,
+      geneFaceUrl: form.geneFaceUrl.trim() || state.config.geneFaceUrl,
       brilliantMediaUrl: form.brilliantMediaUrl.trim(),
       cloudApiUrl: form.cloudApiUrl.trim(),
     };
@@ -98,6 +99,18 @@ export default function AdminPanel() {
                 onChange={(e) => set('faceUrl')(e.target.value)}
               />
               <input type="file" accept="image/*" className="mt-2 text-xs text-gray-500 w-full" onChange={upload('faceUrl')} />
+            </div>
+
+            <div>
+              <label className={labelClass}>Gene&apos;s Face Image URL</label>
+              <input
+                type="text"
+                className={inputClass}
+                placeholder="https://... or upload below"
+                value={form.geneFaceUrl}
+                onChange={(e) => set('geneFaceUrl')(e.target.value)}
+              />
+              <input type="file" accept="image/*" className="mt-2 text-xs text-gray-500 w-full" onChange={upload('geneFaceUrl')} />
             </div>
 
             <div>

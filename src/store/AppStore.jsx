@@ -8,6 +8,7 @@ const QUESTIONS_KEY = 'ryanlingo_custom_questions';
 
 export const DEFAULT_CONFIG = {
   faceUrl: "https://placehold.co/150x150/f0f0f0/a0a0a0?text=Ryan's+Face",
+  geneFaceUrl: "https://placehold.co/150x150/f0f0f0/a0a0a0?text=Gene's+Face",
   brilliantMediaUrl: '',
   cloudApiUrl: '',
 };

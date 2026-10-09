@@ -1,7 +1,5 @@
 import { useConfig } from '../store/AppStore.jsx';
 
-const GENE_FACE = "https://placehold.co/150x150/f0f0f0/a0a0a0?text=Gene's+Face";
-
 // Duo-style owl wearing Ryan's face. `className` is applied to the outer container (e.g. scale-125).
 export function Owl({ className = '' }) {
   const { faceUrl } = useConfig();
@@ -23,13 +21,14 @@ export function Owl({ className = '' }) {
 
 // Small bear (Gene) shown beside a speech bubble.
 export function Bear() {
+  const { geneFaceUrl } = useConfig();
   return (
     <div className="bear-mascot-container">
       <div className="bear-body">
         <div className="bear-ear-left" />
         <div className="bear-ear-right" />
         <div className="bear-face-slot">
-          <img src={GENE_FACE} alt="Gene's Face" className="w-full h-full object-cover" />
+          <img src={geneFaceUrl} alt="Gene's Face" className="w-full h-full object-cover" />
         </div>
         <div className="bear-scarf" />
         <div className="bear-arm-left" />
@@ -41,13 +40,14 @@ export function Bear() {
 
 // Big, waving bear for the cheering page.
 export function CheerBear() {
+  const { geneFaceUrl } = useConfig();
   return (
     <div className="cheer-bear-container">
       <div className="cheer-bear-body">
         <div className="cheer-bear-ear-left" />
         <div className="cheer-bear-ear-right" />
         <div className="cheer-bear-face-slot">
-          <img src={GENE_FACE} alt="Gene's Face" className="w-full h-full object-cover" />
+          <img src={geneFaceUrl} alt="Gene's Face" className="w-full h-full object-cover" />
         </div>
         <div className="cheer-bear-scarf" />
         <div className="cheer-bear-arm-left" />
