@@ -35,16 +35,16 @@ export default function App() {
   const { Screen, theme, lesson } = STAGES[state.stage];
 
   return (
-    <div className={`theme-${theme} min-h-screen flex flex-col`}>
+    <div className={`theme-${theme} flex flex-col ${lesson ? 'h-[100dvh] overflow-hidden' : 'min-h-[100dvh]'}`}>
       <AdminPanel />
       {/* header lives outside the keyed wrapper so the progress bar animates between exercises */}
       {lesson && (
         <LessonHeader showQuit={state.stage !== 'brilliant'} onQuit={() => dispatch({ type: 'RESTART' })} />
       )}
       {/* key re-mounts the screen (restarting its animations/timers) on every stage change */}
-      <div key={`${state.stage}-${state.customIndex}`} className="fade-in flex flex-col flex-1">
+      <div key={`${state.stage}-${state.customIndex}`} className="fade-in flex flex-col flex-1 min-h-0">
         {lesson ? (
-          <main className="flex-1 max-w-md mx-auto w-full px-5 py-2 flex flex-col">
+          <main className="flex-1 min-h-0 overflow-y-auto max-w-md mx-auto w-full px-5 py-2 flex flex-col">
             <Screen />
           </main>
         ) : (

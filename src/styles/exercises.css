@@ -42,8 +42,8 @@
   box-shadow: inset 0 -8px 0 #6A4224;
 }
 .bear-ear-left, .bear-ear-right {
-  position: absolute; top: -8px; width: 24px; height: 24px;
-  background-color: #8C5A35; border: 4px solid #6A4224; border-radius: 50%; z-index: -1;
+  position: absolute; top: -10px; width: 28px; height: 28px;
+  background-color: #8C5A35; border: 4px solid #6A4224; border-radius: 50%; z-index: 5;
 }
 .bear-ear-left { left: 4px; }
 .bear-ear-right { right: 4px; }
@@ -130,8 +130,8 @@
   box-shadow: inset 0 -10px 0 #6A4224;
 }
 .cheer-bear-ear-left, .cheer-bear-ear-right {
-  position: absolute; top: -10px; width: 36px; height: 36px;
-  background-color: #8C5A35; border: 4px solid #6A4224; border-radius: 50%; z-index: -1;
+  position: absolute; top: -14px; width: 40px; height: 40px;
+  background-color: #8C5A35; border: 4px solid #6A4224; border-radius: 50%; z-index: 5;
 }
 .cheer-bear-ear-left { left: 6px; }
 .cheer-bear-ear-right { right: 6px; }

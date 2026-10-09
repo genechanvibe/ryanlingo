@@ -133,9 +133,9 @@ export function Q4() {
   return (
     <div className="flex flex-col flex-1 justify-between">
       <div>
-        <ExerciseTitle id="q4">Complete the sentence</ExerciseTitle>
+        <ExerciseTitle id="q4" className="mb-4">Complete the sentence</ExerciseTitle>
 
-        <div className="flex items-end gap-3 mb-6">
+        <div className="flex items-end gap-3 mb-4">
           <Bear />
           <SpeechBubble textClass="text-lg font-extrabold text-[#4B4B4B] leading-snug">
             Ryan is a{' '}
